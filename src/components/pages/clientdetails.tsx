@@ -1,6 +1,5 @@
-import React from "react";
 import Toptitle from "../layouts/top_title";
-import Buttonbox from "../ui/buttonbox";
+import Buttonbox from "../ui/ButtonBox";
 
 export default function ClientDetails() {
   return (

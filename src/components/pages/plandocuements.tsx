@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import Toptitle from "../layouts/top_title";
-import Buttonbox from "../ui/Buttonbox";
 
 export default function Plandocuements() {
   const [activeTab, setActiveTab] = useState("All");

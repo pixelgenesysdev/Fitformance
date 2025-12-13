@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { Send } from 'lucide-react'
 import Toptitle from '../layouts/top_title'
 import Searchfeild from '../layouts/searchfeild'

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Toptitle from "../layouts/top_title";
-import Buttonbox from "../ui/Buttonbox";
+import Buttonbox from "../ui/ButtonBox";
 
 export default function ClientDetails2() {
   const [activeTab, setActiveTab] = useState("sessions");

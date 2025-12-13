@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Authhome from "./auth/Authhome";
 import Mainhome from "./pages/home";
-import "@fontsource/poppins"; // defaults to 400 weight
+import "@fontsource/poppins/400.css";
 import "@fontsource/poppins/600.css"; // specific weight
 
 

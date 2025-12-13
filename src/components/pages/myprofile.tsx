@@ -1,7 +1,7 @@
 import Toptitle from "../layouts/top_title"
 import Input from "../layouts/input"
 import Button from "../layouts/button"
-import { faWineBottle,faGlobe,faCommentDots, faUser, faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import PopupBox from "../ui/popup"

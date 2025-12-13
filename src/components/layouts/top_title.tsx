@@ -1,4 +1,3 @@
-import React from 'react'
 
 function Toptitle({ title }: { title: string }) {
   return (

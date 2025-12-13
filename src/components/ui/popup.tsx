@@ -1,6 +1,6 @@
 import { faCheck, faInfo, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 interface PopupBoxProps {
   type: string;

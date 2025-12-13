@@ -1,12 +1,12 @@
 import Input from "../layouts/input"
 import Button from "../layouts/button"
-import { faWineBottle,faGlobe,faCommentDots, faUpload, faStopwatch, faSearchMinus, faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
+import { faWineBottle,faGlobe,faCommentDots, faStopwatch, faSearchMinus } from "@fortawesome/free-solid-svg-icons";
 import Toptitle from "../layouts/top_title"
 import Select from "../layouts/select"
 import TextArea from "../layouts/textarea"
 import PopupBox from "../ui/popup"
 import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { useNavigate } from "react-router-dom";
 
 

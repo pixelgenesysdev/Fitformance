@@ -1,11 +1,11 @@
 import Input from "../layouts/input"
 import { useState } from "react";
 import Button from "../layouts/button"
-import { faWineBottle, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faWineBottle } from "@fortawesome/free-solid-svg-icons";
 import Toptitle from "../layouts/top_title"
 import { useNavigate } from "react-router-dom";
 import PopupBox from "../ui/popup"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 function Passwordchange() {
     const [open, setOpen] = useState(false);

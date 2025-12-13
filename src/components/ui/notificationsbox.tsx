@@ -2,7 +2,7 @@
 import {faXmark} from "@fortawesome/free-solid-svg-icons";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 interface Notification {
   id: number;
@@ -87,13 +87,6 @@ const initialNotifications: Notification[] = [
 export default function NotificationsBox({ show, onClose}: Notificationbox) {
   const [notifications, setNotifications] = useState<Notification[]>(initialNotifications);
   const [activeTab, setActiveTab] = useState<'read' | 'unread'>('unread');
-  const markAllAsRead = () => {
-    setNotifications(notifications.map(n => ({ ...n, read: true })));
-  };
-
-  const markAllAsUnread = () => {
-    setNotifications(notifications.map(n => ({ ...n, read: false })));
-  };
 
   const toggleRead = (id: number) => {
     setNotifications(notifications.map(n => 

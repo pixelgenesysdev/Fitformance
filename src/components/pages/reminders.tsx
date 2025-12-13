@@ -1,5 +1,5 @@
 import Toptitle from "../layouts/top_title"
-import Buttonbox from "../ui/buttonbox"
+import Buttonbox from "../ui/ButtonBox"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -91,6 +91,7 @@ function RemindersPage() {
     const navigate = useNavigate();
     const handleShowClient = (client: Client) => {
        navigate(`../viewreminder`);
+       console.log(client);
       // Replace with modal or navigation logic
     };
   
