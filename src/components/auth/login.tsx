@@ -1,0 +1,62 @@
+import Input from "../layouts/input";
+import Button from "../layouts/button";
+import Checkbox from "../layouts/checkbox";
+import { faEnvelope,faLock } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
+
+function login() {
+  return (
+<>
+
+          <div className="p-5">
+            <h2 className="text-white text-4xl md:text-6xl font-semibold text-center mb-10">
+              Log in
+            </h2>
+
+                {/* Email */}
+            <Input 
+              label="Email" 
+              type="email" 
+              id="email" 
+              placeholder="Enter your email"
+              fieldicon={faEnvelope}
+              required={true}
+            />
+
+            <Input 
+              label="Password" 
+              type="password" 
+              id="password" 
+              placeholder="Enter your password"
+              fieldicon={faLock}
+              required={true}
+            />
+
+
+
+            {/* Checkbox + Forgot */}
+            <div className="flex justify-between items-center text-sm mb-8">
+              <Checkbox label="Remember me" />
+              <Link to="/auth/recoveryemail"  className="text-[#0AB4FF] cursor-pointer hover:underline" style={{color:'#0AB4FF'}}>Forgot Password</Link>
+            </div>
+
+
+
+
+            {/* Login button */}
+
+
+            <Button text="Login" />
+
+            {/* Sign up */}
+            <p className="text-center text-white text-1xl mt-6">
+              Don’t have an account?{" "}
+              <Link to="/auth/signup" className="text-[#0AB4FF] cursor-pointer hover:underline" style={{color:'#0AB4FF'}}>Sign Up Now</Link>
+            </p>
+          </div>
+
+</>
+  )
+}
+
+export default login
