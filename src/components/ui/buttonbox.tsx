@@ -5,7 +5,7 @@ interface ButtonboxProps {
   link: string;
 }
 
-export default function Buttonbox({ buttontext, link }: ButtonboxProps) {
+export default function ButtonBox({ buttontext, link }: ButtonboxProps) {
   const navigate = useNavigate();
 
   return (
