@@ -1,6 +1,5 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "//": "Vite + React Router SPA: always serve index.html and let the client router handle paths",
   "framework": "vite",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",

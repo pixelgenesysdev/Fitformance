@@ -1,0 +1,6 @@
+{
+  "summary": "Resolved the Vercel schema validation error by removing the invalid '//' comment property from vercel.json, keeping only supported keys like $schema, framework, buildCommand, outputDirectory, and rewrites.",
+  "current_status": "vercel.json now passes schema validation for Vercel; the next deployment should proceed without configuration errors, and the Vite SPA will still rewrite all routes to index.html for React Router."
+}
+
+
