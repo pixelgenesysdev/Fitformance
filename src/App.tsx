@@ -17,7 +17,7 @@ function App() {
         <Route path="/pages/*" element={<Mainhome />} />
 
         {/* DEFAULT ROUTE */}
-        <Route path="/" element={<Navigate to="/pages" />} />
+        <Route path="/" element={<Navigate to="/auth/login" />} />
 
       </Routes>
     </BrowserRouter>
