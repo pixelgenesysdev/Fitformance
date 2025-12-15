@@ -5,6 +5,7 @@ import Login from "./login";
 import OtpAuth from "./OtpAuth";
 import NewPassword from "./newpassword";
 import RecoveryEmail from "./recoveryEmail";
+import { useNavigate } from "react-router-dom";
 
 export default function Authhomesection() {
   const location = useLocation();
@@ -12,6 +13,8 @@ export default function Authhomesection() {
   const isrecoveryemail = location.pathname === "/auth/recoveryemail";
   const isotpauth = location.pathname === "/auth/otpauth";
   const isnewpassword = location.pathname === "/auth/newpassword";
+  const navigate = useNavigate();
+
 
   return (
     <main
@@ -26,7 +29,7 @@ export default function Authhomesection() {
           <img
             src='/images/fitformance_logo.png'
             onClick={() => {
-              window.location.href = "/pages/home";
+              navigate("/pages/home");
             }}
             alt="Fitformance Logo"
             className="w-72 md:w-100 lg:w-full object-contain cursor-pointer"
@@ -35,11 +38,11 @@ export default function Authhomesection() {
 
         {/* RIGHT LOGIN CARD */}
         <div
-          className="w-full max-w-2xl border-4 md: border-[#0AB4FF] rounded-3xl pl-10 pr-10 pt-5 pb-5 flex items-center"
+          className="w-full lg:max-w-[80%] md:max-w-[100%] border-4 md: border-[#0AB4FF] rounded-3xl lg:px-10 lg:py-8 flex items-center sm:p-5 md:p-10"
           style={{ maxHeight: "auto", minHeight: "80vh" }}
         >
           <div
-            style={{ maxWidth: "90%", width: "100%", margin: "0 auto" }}
+            style={{ maxWidth: "100%", width: "100%", margin: "0 auto" }}
             className="h-max"
           >
             {/* ⭐ THIS IS THE IMPORTANT PART ⭐ */}

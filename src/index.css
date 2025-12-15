@@ -29,6 +29,9 @@ body {
   margin: 0;
   place-items: center;
 }
+#mainbody {
+    overflow-x: hidden !important;
+  }
 
 h1 {
   font-size: 3.2em;

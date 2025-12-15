@@ -3,13 +3,15 @@ import Button from "../layouts/button";
 import Checkbox from "../layouts/checkbox";
 import { faEnvelope,faLock } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function login() {
+  const navigate = useNavigate();
   return (
 <>
 
           <div className="p-5">
-            <h2 className="text-white text-4xl md:text-6xl font-semibold text-center mb-10">
+            <h2 className="text-white text-[40px] font-semibold text-center mb-10">
               Log in
             </h2>
 
@@ -46,7 +48,7 @@ function login() {
             {/* Login button */}
 
 
-            <Button text="Login" />
+            <Button text="Login" onClick={()=>navigate("/pages/home")}/>
 
             {/* Sign up */}
             <p className="text-center text-white text-1xl mt-6">

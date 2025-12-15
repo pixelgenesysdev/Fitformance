@@ -2,14 +2,16 @@ import Input from "../layouts/input";
 import Button from "../layouts/button";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function RecoveryEmail() {
+  const navigate = useNavigate();
   return (
 <>
 
           <div className="p-5">
             <div className="text-white text-center mb-10">
-                <h2 className=" text-4xl md:text-4xl font-semibold mb-1">
+                <h2 className=" text-[40px]  font-semibold mb-1">
                 Password Recovery
                 </h2>
                 <p>Enter your email address to recieve a verification code.</p>
@@ -28,7 +30,7 @@ function RecoveryEmail() {
             {/* Login button */}
 
 
-            <Button text="Continue" onClick={()=>{window.location.href="/auth/otpauth"}} />
+            <Button text="Continue" onClick={()=>{navigate('/auth/otpauth')}} />
 
             {/* Sign up */}
             <p className="text-center text-1xl mt-6">

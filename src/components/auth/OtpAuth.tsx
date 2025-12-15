@@ -2,14 +2,17 @@ import Input from "../layouts/input";
 import Button from "../layouts/button";
 import { faSpaghettiMonsterFlying } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function OtpAuth() {
+    const navigate = useNavigate();
+
   return (
 <>
 
           <div className="p-5">
             <div className="text-white text-center mb-10">
-                <h2 className=" text-4xl md:text-4xl font-semibold mb-1">
+                <h2 className="text-[40px]  font-semibold mb-1">
                 Password Recovery
                 </h2>
                 <p>Enter verification code to recover your password.</p>
@@ -30,7 +33,7 @@ function OtpAuth() {
             {/* Login button */}
 
 
-            <Button text="Continue" onClick={()=>{window.location.href="/auth/newpassword"}} />
+            <Button text="Continue" onClick={()=>{navigate('/auth/newpassword')}} />
 
             {/* Sign up */}
             <p className="text-center text-1xl mt-6">
