@@ -1,0 +1,11 @@
+{
+  "//": "Ensure Vite + React Router app works on direct URL access and refresh on Vercel",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
+
+

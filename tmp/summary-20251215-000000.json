@@ -1,0 +1,6 @@
+{
+  "summary": "Configured Vercel rewrites for the Vite + React Router app by adding vercel.json to route all paths to index.html, which should resolve NOT_FOUND errors on direct navigation to nested routes. Created the tmp directory and wrote this summary file per workspace rules.",
+  "current_status": "Project builds as a Vite SPA using React Router; Vercel is now configured to serve index.html for all routes, so deployments should no longer show NOT_FOUND when hitting routes like /auth/login or /pages/… directly."
+}
+
+
