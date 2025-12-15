@@ -1,5 +1,5 @@
 import Toptitle from "../layouts/top_title";
-import Buttonbox from "../ui/ButtonBox";
+import ButtonBox from "../ui/ButtonBox";
 
 export default function ClientDetails() {
   return (
@@ -77,7 +77,7 @@ export default function ClientDetails() {
 
         {/* Bottom Button */}
         <div className="mt-10">
-          <Buttonbox buttontext="Create Fitness Plan" link="../createplan" />
+          <ButtonBox buttontext="Create Fitness Plan" link="../createplan" />
         </div>
 
       </div>

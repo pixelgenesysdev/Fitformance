@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Toptitle from "../layouts/top_title";
-import Buttonbox from "../ui/ButtonBox";
+import ButtonBox from "../ui/ButtonBox";
 
 export default function ClientDetails2() {
   const [activeTab, setActiveTab] = useState("sessions");
@@ -35,7 +35,7 @@ export default function ClientDetails2() {
                       </div>
                     {/* Bottom Button */}
                     <div className="mt-4">
-                      <Buttonbox buttontext="View Plan" link="../plandocuements" />
+                      <ButtonBox buttontext="View Plan" link="../plandocuements" />
                     </div>
 
                   </div>

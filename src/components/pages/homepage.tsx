@@ -16,6 +16,7 @@ import ClientDetails from "./clientdetails.tsx";
 import ClientDetails2 from "./clientdetails2.tsx";
 import Plandocuements from "./plandocuements.tsx";
 import Createplan from "./createplan.tsx";
+import Authhomesection from "../auth/auth";
 
 
 
@@ -24,6 +25,7 @@ import Createplan from "./createplan.tsx";
 
 export default function Homepage() {
   const location = useLocation();
+  const ismain = location.pathname === "/pages";
   const IsClientmanagement = location.pathname === "/pages/clientmanagement";
   const IsChat = location.pathname === "/pages/chats";
   const isPostLab = location.pathname === "/pages/postlab";
@@ -60,6 +62,7 @@ export default function Homepage() {
              isClientDetails2 ? <ClientDetails2 /> :
              isPlandocuements ? <Plandocuements /> :
              isCreateplan ? <Createplan /> :
+             ismain ? <Authhomesection /> :
              <DashboardPage />}
         </div>
       </main>
