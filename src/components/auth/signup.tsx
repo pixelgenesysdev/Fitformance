@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import PopupBox from "../ui/popup"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Toptitle from "../layouts/top_title";
 
 function signup() {
 
