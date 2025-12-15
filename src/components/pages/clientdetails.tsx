@@ -1,6 +1,5 @@
 import Toptitle from "../layouts/top_title";
 import NewButton from "../ui/NewButton";
-import clientimg from "../../assets/images/dashboardimages/dashboardimage1.png";
 
 
 export default function ClientDetails() {
@@ -19,7 +18,7 @@ export default function ClientDetails() {
           {/* Profile Image */}
           <div className="imagbox mb-3 flex items-center justify-between w-full">
             <img
-              src={clientimg}
+              src="/images/dashboardimages/dashboardimage1.png"
               className="w-[150px] h-[150px] rounded-full object-cover shadow-md"
               alt="client img"
             />

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import logo from "../../assets/images/fitformance_logo.png";
 import PopupBox from "./popup";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -41,7 +40,7 @@ export default function Sidebar() {
         {/* LOGO */}
         <div className="p-6 mb-2">
           <img
-            src={logo}
+            src="/images/fitformance_logo.png"
             className="h-auto w-full cursor-pointer"
             alt="Fitformance"
             onClick={() => navigate("/auth/login")}

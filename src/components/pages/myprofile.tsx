@@ -5,7 +5,6 @@ import { faUser, faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import PopupBox from "../ui/popup"
-import Profileimg from "../../assets/images/dashboardimages/dashboardimage1.png";
 
 
 function MyProfile() {
@@ -17,7 +16,7 @@ function MyProfile() {
       <Toptitle title="My Profile" />
     <div id="MyProfile" className="p-5 max-w-2xl mx-auto my-8 ">
             <div className="imagbox">
-              <img src={Profileimg} className="w-full cursor-pointer object-cover mb-5 max-w-[150px] mx-auto h-[150px] rounded-full" alt="session" />
+              <img src="/images/dashboardimages/dashboardimage1.png" className="w-full cursor-pointer object-cover mb-5 max-w-[150px] mx-auto h-[150px] rounded-full" alt="session" />
             </div>
             <Input 
               label="First Name:" 

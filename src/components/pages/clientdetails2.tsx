@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Toptitle from "../layouts/top_title";
 import NewButton from "../ui/NewButton";
-import clientimg from "../../assets/images/dashboardimages/dashboardimage2.png";
 
 export default function ClientDetails2() {
   const [activeTab, setActiveTab] = useState("sessions");
@@ -24,7 +23,7 @@ export default function ClientDetails2() {
             {/* Profile Image */}
             <div className="imagbox mb-3 flex items-center justify-between w-full">
                   <img
-                    src={clientimg}
+                    src="/images/dashboardimages/dashboardimage1.png"
                     className="w-[150px] h-[150px] rounded-full object-cover shadow-md"
                     alt="client img"
                   />
