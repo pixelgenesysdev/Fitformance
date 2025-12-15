@@ -27,7 +27,7 @@ export default function DashboardPage() {
     <div className="pt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {images.map((img, i) => (
         <div key={i} className="rounded-xl overflow-hidden">
-          <img src={'../src/assets/images/dashboardimages/' + img} className="w-full cursor-pointer object-cover" alt="session" />
+          <img src={"/src/assets/images/dashboardimages/" + img} className="w-full cursor-pointer object-cover" alt="session" />
         </div>
       ))}
     </div>

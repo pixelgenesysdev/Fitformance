@@ -1,4 +1,5 @@
 import Toptitle from '../layouts/top_title'
+import clientlibrary from "../../assets/images/dashboardimages/dashboardimage1.png";
 
 function viewprotocol() {
   return (
@@ -6,7 +7,7 @@ function viewprotocol() {
 
 <Toptitle title="View Protocol" />
 
-<img src='../src/assets/images/dashboardimages/dashboardimage1.png' className='max-w-[500px] w-full mt-10' alt="" />
+<img src={clientlibrary} className='max-w-[500px] w-full mt-10' alt="" />
 
 
 
