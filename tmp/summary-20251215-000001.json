@@ -1,0 +1,6 @@
+{
+  "summary": "Identified that a Next.js-specific buildCommand (`next build`) was causing Vercel deployment failures for a Vite-based React app. Updated vercel.json to use the proper Vite configuration with the correct schema, framework set to 'vite', buildCommand set to 'npm run build', outputDirectory 'dist', and kept the SPA rewrite to index.html.",
+  "current_status": "The project is now configured in vercel.json as a Vite SPA instead of Next.js, so the next Vercel deployment should build successfully and serve all client-side routes via index.html without NOT_FOUND or build errors."
+}
+
+
