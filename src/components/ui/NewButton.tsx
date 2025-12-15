@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
 
-interface ButtonboxProps {
+interface ButtonProps {
   buttontext: string;
   link: string;
 }
 
-export default function ButtonBox({ buttontext, link }: ButtonboxProps) {
+export default function NewButton({ buttontext, link }: ButtonProps) {
   const navigate = useNavigate();
 
   return (

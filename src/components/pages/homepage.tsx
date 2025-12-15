@@ -12,11 +12,13 @@ import MyProfile from "./myprofile.tsx";
 import Passwordchange from "./passwordchange.tsx";
 import Viewdocument from "./viewdocument.tsx";
 import Viewprotocol from "./viewprotocol.tsx";
-import ClientDetails from "./clientdetails.tsx";
-import ClientDetails2 from "./clientdetails2.tsx";
+
+
 import Plandocuements from "./plandocuements.tsx";
 import Createplan from "./createplan.tsx";
 import Authhomesection from "../auth/auth";
+import ClientDetails from "./clientdetails.tsx";
+import ClientDetails2 from "./clientdetails2.tsx";
 
 
 

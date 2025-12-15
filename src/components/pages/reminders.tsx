@@ -1,7 +1,7 @@
 import Toptitle from "../layouts/top_title"
-import ButtonBox from "../ui/ButtonBox"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import NewButton from "../ui/NewButton";
 
 
 // === Types ===
@@ -101,7 +101,7 @@ function RemindersPage() {
 <>
         <div className="flex justify-between items-center gap-5">
               <Toptitle title="Reminders" />
-              <ButtonBox buttontext="Create Reminder" link="../addreminder"/>
+              <NewButton buttontext="Create Reminder" link="../addreminder"/>
         </div>
         
         <section className="py-6 lg:py-8">
