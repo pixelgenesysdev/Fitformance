@@ -10,7 +10,6 @@ import {
   faComments,
   faBell,
   faRightFromBracket,
-  faBars,
   faClose,
 } from "@fortawesome/free-solid-svg-icons";
 import type { IconDefinition } from "@fortawesome/free-solid-svg-icons";
