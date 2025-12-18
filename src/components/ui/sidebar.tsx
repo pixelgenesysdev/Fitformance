@@ -11,92 +11,109 @@ import {
   faBell,
   faRightFromBracket,
   faBars,
+  faClose,
 } from "@fortawesome/free-solid-svg-icons";
 import type { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 
-export default function Sidebar() {
+export default function Sidebar({ isOpen, closeSidebar }: { isOpen: boolean; closeSidebar: () => void }) {
 
   const [open2, setOpen2] = useState(false);
-  const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
   return (
     <>
-      {/* Mobile Overlay */}
-      <div
-        onClick={() => setOpen(false)}
-        className={`fixed inset-0 bg-black/40 z-30 sm:hidden transition-all ${
-          open ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
-      />
+
+    {<style>
+        {`
+         .sidebarclose {
+                transform: translateX(-100%);
+            }
+        `}
+      </style>}
 
       {/* Sidebar */}
       <aside
-        className={`w-64 h-screen flex-none bg-[#0C0E16] border-r border-[#37B5FF]
-        transition-transform duration-300
-        ${open ? "translate-x-0" : "-translate-x-full"}
-        sm:translate-x-0`}
-      >
-        {/* LOGO */}
-        <div className="p-6 mb-2">
-          <img
-            src="/images/fitformance_logo.png"
-            className="h-auto w-full cursor-pointer"
-            alt="Fitformance"
-            onClick={() => navigate("/auth/login")}
-          />
-        </div>
-
-        {/* NAVIGATION */}
-        <nav className="pl-4 mt-12 space-y-2 text-white">
-          <SidebarLink
-            icon={faHouse}
-            label="Home"
-            link="/pages/home"
-            activOn={["/pages/home", "/pages/myprofile", "/pages/passwordchange"]}
-          />
-
-          <SidebarLink
-            icon={faUsers}
-            label="Client Management"
-            link="/pages/clientmanagement"
-            activOn={["/pages/clientmanagement", "/pages/clientdetails", "/pages/createplan", "/pages/clientdetails2", "/pages/plandocuements"]}
-          />
-
-          <SidebarLink
-            icon={faFlask}
-            label="Post Rehab Lab"
-            link="/pages/postlab"
-            activOn={["/pages/postlab", "/pages/viewdocument", "/pages/viewprotocol"]}
-          />
-
-          <SidebarLink
-            icon={faComments}
-            label="Chat"
-            link="/pages/chats"
-            activOn={["/pages/chats", "/pages/chats/messages"]}
-          />
-
-          <SidebarLink
-            icon={faBell}
-            label="Reminders"
-            link="/pages/reminders"
-            activOn={["/pages/reminders", "/pages/addreminder","/pages/viewreminder"]}
-          />
-        </nav>
-
-        {/* LOGOUT */}
-        <div className="absolute bottom-6 w-full pl-4">
-          <div
-            className={`flex items-center gap-3 px-3 py-4 cursor-pointer text-white" : "hover:bg-gray-800"
-            }`}
-            style={{ borderRadius: "50px 0px 0 50px" }}
-            onClick={() => setOpen2(true)}
+        className={`
+            top-0 left-0 h-screen bg-[#0C0E16] border-r border-[#37B5FF] z-40
+            block w-64
+            transform transition-transform duration-300 ease-in-out
+            ${isOpen ? 'opensidebar' : 'sidebarclose'}
+             
+          `}
+          
+          style={{position:'fixed',}}
+        > 
+        {/* Close icon */}
+        <div className="flex justify-end p-4 md:hidden">
+          <button
+            onClick={closeSidebar}
+            className="text-white hover:opacity-90"
+            style={{ backgroundColor: "transparent" , border: "none", outline: "none" ,padding: "0px"}}
           >
-            <FontAwesomeIcon icon={faRightFromBracket} className="text-1xl" />
-            <span className="text-sm font-medium">Logout</span>
-          </div>
+            <FontAwesomeIcon icon={faClose} className="text-2xl" />
+          </button>
         </div>
+
+            {/* LOGO */}
+            <div className="p-6 mb-2">
+              <img
+                src="/images/fitformance_logo.png"
+                className="h-auto w-full cursor-pointer"
+                alt="Fitformance"
+                onClick={() => navigate("/auth/login")}
+              />
+            </div>
+
+            {/* NAVIGATION */}
+            <nav className="pl-4 mt-12 space-y-2 text-white">
+              <SidebarLink
+                icon={faHouse}
+                label="Home"
+                link="/pages/home"
+                activOn={["/pages/home", "/pages/myprofile", "/pages/passwordchange"]}
+              />
+
+              <SidebarLink
+                icon={faUsers}
+                label="Client Management"
+                link="/pages/clientmanagement"
+                activOn={["/pages/clientmanagement", "/pages/clientdetails", "/pages/createplan", "/pages/clientdetails2", "/pages/plandocuements"]}
+              />
+
+              <SidebarLink
+                icon={faFlask}
+                label="Post Rehab Lab"
+                link="/pages/postlab"
+                activOn={["/pages/postlab", "/pages/viewdocument", "/pages/viewprotocol"]}
+              />
+
+              <SidebarLink
+                icon={faComments}
+                label="Chat"
+                link="/pages/chats"
+                activOn={["/pages/chats", "/pages/chats/messages"]}
+              />
+
+              <SidebarLink
+                icon={faBell}
+                label="Reminders"
+                link="/pages/reminders"
+                activOn={["/pages/reminders", "/pages/addreminder","/pages/viewreminder"]}
+              />
+            </nav>
+
+            {/* LOGOUT */}
+            <div className="absolute bottom-6 w-full pl-4">
+              <div
+                className={`flex items-center gap-3 px-3 py-4 cursor-pointer text-white" : "hover:bg-gray-800"
+                }`}
+                style={{ borderRadius: "50px 0px 0 50px" }}
+                onClick={() => setOpen2(true)}
+              >
+                <FontAwesomeIcon icon={faRightFromBracket} className="text-1xl" />
+                <span className="text-sm font-medium">Logout</span>
+              </div>
+            </div>
       </aside>
                           <PopupBox
                             type="error"               // This will show the X icon
@@ -112,13 +129,6 @@ export default function Sidebar() {
                           />
 
 
-      {/* MOBILE TOGGLE BUTTON */}
-      <button
-        className="sm:hidden fixed top-4 left-4 z-50 bg-white p-2 rounded-full shadow"
-        onClick={() => setOpen(true)}
-      >
-        <FontAwesomeIcon icon={faBars} className="text-xl" />
-      </button>
 
 
 

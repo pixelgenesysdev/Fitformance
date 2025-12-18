@@ -4,6 +4,7 @@ import Checkbox from "../layouts/checkbox";
 import { faEnvelope,faLock } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import AuthTitle from "../layouts/AuthTitle";
 
 function login() {
   const navigate = useNavigate();
@@ -11,9 +12,7 @@ function login() {
 <>
 
           <div className="p-5">
-            <h2 className="text-white text-[40px] font-semibold text-center mb-10">
-              Log in
-            </h2>
+            <AuthTitle title="Login to Your Account" />
 
                 {/* Email */}
             <Input 

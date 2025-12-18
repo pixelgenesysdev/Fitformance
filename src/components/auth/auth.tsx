@@ -23,22 +23,22 @@ export default function Authhomesection() {
       
     >
       {/* Wrapper (logo + card) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-full items-center justify-items-center p-10 w-full" >
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 max-w-full items-center justify-items-center p-10 w-full" >
         {/* LEFT LOGO */}
-        <div className="imagecol">
+        <div className="imagecol pb-10 lg:pb-0">
           <img
             src='/images/fitformance_logo.png'
             onClick={() => {
               navigate("/pages/home");
             }}
             alt="Fitformance Logo"
-            className="w-72 md:w-100 lg:w-full object-contain cursor-pointer"
+            className="lg:w-[80%] mx-w-[100%] w-[100%] md:w-[90%] m-auto  table object-contain cursor-pointer"
           />
         </div>
 
         {/* RIGHT LOGIN CARD */}
         <div
-          className="w-full lg:max-w-[80%] md:max-w-[100%] border-4 md: border-[#0AB4FF] rounded-3xl lg:px-10 lg:py-8 flex items-center sm:p-5 md:p-10"
+          className="w-full lg:max-w-[80%] md:max-w-[100%] border-4 md: border-[#0AB4FF] rounded-3xl lg:px-5 lg:py-8 flex items-center sm:p-5 md:p-10"
           style={{ maxHeight: "auto", minHeight: "80vh" }}
         >
           <div

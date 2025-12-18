@@ -3,6 +3,7 @@ import Button from "../layouts/button";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import AuthTitle from "../layouts/AuthTitle";
 
 function RecoveryEmail() {
   const navigate = useNavigate();
@@ -11,9 +12,7 @@ function RecoveryEmail() {
 
           <div className="p-5">
             <div className="text-white text-center mb-10">
-                <h2 className=" text-[40px]  font-semibold mb-1">
-                Password Recovery
-                </h2>
+                <AuthTitle title="Password Recovery"/>
                 <p>Enter your email address to recieve a verification code.</p>
             </div>
 

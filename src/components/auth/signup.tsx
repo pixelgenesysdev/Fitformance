@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import PopupBox from "../ui/popup"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import AuthTitle from "../layouts/AuthTitle";
 
 function signup() {
 
@@ -19,9 +20,7 @@ function signup() {
 <>
 
           <div className="p-5">
-            <h2 className="text-white text-[40px]   font-semibold text-center mb-5">
-              Sign up
-            </h2>
+            <AuthTitle title="Create your Account" />
                 {/* Email */}
             <Input 
               label="Full Name" 

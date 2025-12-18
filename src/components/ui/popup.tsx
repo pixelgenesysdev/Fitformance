@@ -39,7 +39,7 @@ export default function PopupBox({
 
   return (
     <div
-      className="flex overflow-y-auto overflow-x-hidden fixed inset-0 z-50 justify-center items-center w-full h-full backdrop-blur-sm bg-black/30"
+      className="flex overflow-y-auto overflow-x-hidden fixed inset-0 z-50 justify-center items-center w-full p-4 h-full backdrop-blur-sm bg-black/30"
     >
       <div className="relative p-6 w-full max-w-md text-white bg-black border-[#37B5FF] border-3 rounded-3xl">
         

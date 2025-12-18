@@ -3,6 +3,7 @@ import Button from "../layouts/button";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import AuthTitle from "../layouts/AuthTitle";
 
 function NewPassword() {
     const navigate = useNavigate();
@@ -12,9 +13,8 @@ function NewPassword() {
 
           <div className="p-5">
             <div className="text-white text-center mb-10">
-                <h2 className="text-[40px] font-semibold mb-1">
-                Password Recovery
-                </h2>
+                <AuthTitle title="Set New Password" />
+                <p className="text-white text-lg">Please enter your new password below.</p>
             </div>
 
             {/* new password */}

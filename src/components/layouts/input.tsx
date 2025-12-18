@@ -9,10 +9,23 @@ interface InputProps {
   id: string;
   placeholder: string;
   fieldicon: IconDefinition;
-  required: boolean;
+  required?: boolean;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  disabled?: boolean;
 }
 
-const Input: React.FC<InputProps> = ({ label, type, id, placeholder, fieldicon,required }) => {
+const Input: React.FC<InputProps> = ({
+  label,
+  type,
+  id,
+  placeholder,
+  value,
+  onChange,
+  fieldicon,
+  required = false,
+  disabled = false,
+}) => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
@@ -30,8 +43,11 @@ const Input: React.FC<InputProps> = ({ label, type, id, placeholder, fieldicon,r
           type={type === "password" ? (showPassword ? "text" : "password") : type}
           id={id}
           placeholder={placeholder}
+          value={value}
+          onChange={onChange}
           className="w-full bg-transparent pt-1 pb-1 text-white text-1xl placeholder-gray-300 focus:outline-none"
           required={required}
+          disabled={disabled}
         />
 
         {type === "password" && (

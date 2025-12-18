@@ -3,6 +3,7 @@ import Button from "../layouts/button";
 import { faSpaghettiMonsterFlying } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import AuthTitle from "../layouts/AuthTitle";
 
 function OtpAuth() {
     const navigate = useNavigate();
@@ -12,9 +13,7 @@ function OtpAuth() {
 
           <div className="p-5">
             <div className="text-white text-center mb-10">
-                <h2 className="text-[40px]  font-semibold mb-1">
-                Password Recovery
-                </h2>
+                <AuthTitle  title="OTP Verification" />
                 <p>Enter verification code to recover your password.</p>
             </div>
 
