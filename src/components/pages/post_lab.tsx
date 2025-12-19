@@ -75,7 +75,7 @@ function PostLabpage() {
       <div className="min-h-screen bg-[#000000] text-white py-6">
         <div className="max-w-screen mx-auto px-4">
           {/* Tabs */}
-          <div className="flex gap-0 mb-6 bg-[#161617] w-fit rounded-2xl overflow-hidden">
+          <div className="flex gap-0 mb-6 bg-[#161617] flex-col lg:flex-row w-full lg:w-fit rounded-2xl overflow-hidden">
             {["All", "Protocol", "Library"].map((tab) => (
               <button
                 key={tab}

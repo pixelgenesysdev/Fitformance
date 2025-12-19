@@ -100,13 +100,13 @@ export default function NotificationsBox({ show, onClose}: Notificationbox) {
 
   return (
     <>
-      <div className={`${show ? 'block' :'hidden'} fixed inset-0 z-50 flex items-center justify-center w-screen h-screen bg-black/80`} id="notibox">
-        <div className="relative w-full pt-15  max-w-3xl h-full max-h-[80vh] mx-4 p-6 text-white bg-[#1F1F1F] border-4 border-[#37B5FF] rounded-3xl">
+      <div className={`${show ? 'block' :'hidden'} fixed inset-0 z-50 flex items-center p-3 justify-center w-screen h-screen bg-black/80`} id="notibox">
+        <div className="relative w-full pt-10  max-w-3xl h-full max-h-[80vh] mx-4 overflow-hidden p-6 text-white bg-[#1F1F1F] border-4 border-[#37B5FF] rounded-3xl">
           <div className="boxiconcross absolute top-[15px] right-[15px]">
               <FontAwesomeIcon icon={faXmark} className="text-2xl cursor-pointer text-white"      onClick={onClose} />
             </div>
           {/* Header */}
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center gap-3 flex-col lg:flex-row justify-between mb-6">
             
             <h3 className="text-2xl sm:text-3xl font-bold capitalize">Notifications</h3>
             <div className="flex items-center gap-3 tabsButtonsbar">
@@ -134,7 +134,7 @@ export default function NotificationsBox({ show, onClose}: Notificationbox) {
           </div>
 
           {/* Notifications List - Scrollable */}
-          <div className="max-h-[calc(80vh-180px)] overflow-y-auto pr-2 space-y-4">
+          <div className="lg:max-h-[calc(80vh-180px)] max-h-full overflow-y-auto pr-2 space-y-4">
             {currentNotifications.length === 0 ? (
               <div className="text-center text-gray-500 py-10">
                 No {activeTab} notifications
