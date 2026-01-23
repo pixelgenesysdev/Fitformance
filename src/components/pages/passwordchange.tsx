@@ -2,7 +2,7 @@ import Input from "../layouts/input"
 import { useState } from "react";
 import Button from "../layouts/button"
 import { faWineBottle } from "@fortawesome/free-solid-svg-icons";
-import Toptitle from "../layouts/top_title"
+import Top_title_backicon from "../layouts/top_title_backicon";
 import { useNavigate } from "react-router-dom";
 import PopupBox from "../ui/popup"
 
@@ -15,7 +15,8 @@ function Passwordchange() {
 <>
 
         <div className="flex justify-between items-center">
-              <Toptitle title="Password Change" />
+            
+              <Top_title_backicon title="Change Password" />
         </div>
 
           <div id="formadd" className="mt-10">

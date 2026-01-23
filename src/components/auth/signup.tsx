@@ -7,11 +7,13 @@ import PopupBox from "../ui/popup"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthTitle from "../layouts/AuthTitle";
+import Termscondition from "../ui/terms&condition";
 
 function signup() {
 
  const navigate = useNavigate();
  const [open, setOpen] = useState(false);
+ const [open2, setOpen2] = useState(false);
 
   
   return (
@@ -40,7 +42,7 @@ function signup() {
             />
             
             <Input 
-              label="Number" 
+              label="Phone Number" 
               type="tel" 
               id="PhoneNumber" 
               placeholder="Enter your Phone Number"
@@ -83,14 +85,16 @@ function signup() {
 
             {/* Sign up */}
             <p className="text-center text-[#bababa] text-1xl mt-6">
-              Already have an account{" "}
+              Already have an account ? {" "}
               <Link  to="/auth/login" className="text-[#0AB4FF] cursor-pointer hover:underline" style={{color:'#0AB4FF'}}>Login now</Link>
             </p>
             <p className="text-center text-[#bababa]  text-1xl mt-3">
              By creating an account you agree to our{" "}
-              <a className="text-[#0AB4FF] cursor-pointer hover:underline" style={{color:'#0AB4FF'}}>Terms Conditions</a>
+              <a className="text-[#0AB4FF] cursor-pointer hover:underline"  onClick={()=>setOpen2(true)} style={{color:'#0AB4FF'}}>Terms Conditions</a>
             </p>
           </div>
+
+          {open2 ? <Termscondition  onClose={() => setOpen2(false)} isOpen={open2}/> : null}
 
                       <PopupBox
                       type="success"               // This will show the X icon

@@ -57,9 +57,8 @@ export default function Sidebar({ isOpen, closeSidebar }: { isOpen: boolean; clo
             <div className="p-6 mb-2">
               <img
                 src="/images/fitformance_logo.png"
-                className="h-auto w-full cursor-pointer"
+                className="h-auto w-full "
                 alt="Fitformance"
-                onClick={() => navigate("/auth/login")}
               />
             </div>
 
@@ -69,14 +68,14 @@ export default function Sidebar({ isOpen, closeSidebar }: { isOpen: boolean; clo
                 icon={faHouse}
                 label="Home"
                 link="/pages/home"
-                activOn={["/pages/home", "/pages/myprofile", "/pages/passwordchange"]}
+                activOn={["/pages/home"]}
               />
 
               <SidebarLink
                 icon={faUsers}
-                label="Client Management"
+                label="Clients Management"
                 link="/pages/clientmanagement"
-                activOn={["/pages/clientmanagement", "/pages/clientdetails", "/pages/createplan", "/pages/clientdetails2", "/pages/plandocuements"]}
+                activOn={["/pages/clientmanagement", "/pages/clientdetails", "/pages/createplan", "/pages/clientdetails2", "/pages/plandocuements", "/pages/editplan"]}
               />
 
               <SidebarLink
@@ -118,7 +117,7 @@ export default function Sidebar({ isOpen, closeSidebar }: { isOpen: boolean; clo
                             type="error"               // This will show the X icon
                             title="Are you sure?"
                             message="Do you really want to Logout?"
-                            buttonText="Logout"
+                            buttonText="Yes"
                             buttonFunction={() => navigate("../../auth/login")}
                             double={true}              // Enables second button
                             secondButtonText="No"

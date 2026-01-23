@@ -11,6 +11,7 @@ export default function Mainhome() {
           <Route path="ClientDetails" element={<Homepage />} />
           <Route path="Createplan" element={<Homepage />} />
           <Route path="Plandocuements" element={<Homepage />} />
+          <Route path="Editplan" element={<Homepage />} />
         <Route path="Postlab" element={<Homepage />} />
           <Route path="viewdocument" element={<Homepage />} />
           <Route path="Viewprotocol" element={<Homepage />} />

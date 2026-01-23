@@ -1,4 +1,6 @@
-  import { useState } from "react";
+import { FaEye } from "react-icons/fa";
+
+import { useState } from "react";
   import Toptitle from "../layouts/top_title";
   import { useNavigate } from "react-router-dom";
   // === Types ===
@@ -87,7 +89,7 @@
 
     return (
       <>
-        <Toptitle title="Client Management" />
+        <Toptitle title="Clients Management" />
 
         <section className="py-6 lg:py-8">
           <div className="mx-auto max-w-full px-0">
@@ -195,7 +197,8 @@
                             onClick={() => navigate(`../clientdetails?id=${client.id}`)}
                             className="font-medium text-[#37B5FF] hover:underline transition"
                           >
-                            Show
+                            <FaEye />
+
                           </button>
                         </td>
                       </tr>

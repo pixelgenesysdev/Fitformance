@@ -4,9 +4,12 @@ import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import AuthTitle from "../layouts/AuthTitle";
+import PopupBox from "../ui/popup";
+import { useState } from "react";
 
 function NewPassword() {
     const navigate = useNavigate();
+    const [open, setOpen] = useState(false);
 
   return (
 <>
@@ -37,8 +40,19 @@ function NewPassword() {
               required={true}
             />
 
-            <Button text="Update" onClick={()=>{navigate('/auth/login')}} />
+            <Button text="Update" onClick={()=>setOpen(true)} />
 
+                        <PopupBox
+                          type="success"
+                          title="Successfully"
+                          message="Password updated successfully. Please log in to continue "
+                          buttonText="OK"
+                          buttonFunction={() => {navigate("/auth/login"); setOpen(false)}}
+                          isOpen={open}
+                          onClose={() => setOpen(false)}
+                        />
+
+                        
             {/* Sign up */}
             <p className="text-center text-1xl mt-6">
               <Link to="/auth/login" className="text-[#0AB4FF] cursor-pointer hover:underline" style={{color:'#0AB4FF'}}>back to login</Link>

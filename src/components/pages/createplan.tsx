@@ -1,7 +1,7 @@
 import Input from "../layouts/input"
 import Button from "../layouts/button"
 import { faWineBottle,faGlobe,faCommentDots, faStopwatch, faSearchMinus } from "@fortawesome/free-solid-svg-icons";
-import Toptitle from "../layouts/top_title"
+import Top_title_backicon from "../layouts/top_title_backicon"
 import Select from "../layouts/select"
 import TextArea from "../layouts/textarea"
 import PopupBox from "../ui/popup"
@@ -17,7 +17,7 @@ const Createplan = () => {
   return (
 <>
 
-            <Toptitle title="Create Plan" />
+            <Top_title_backicon title="Create Plan" />
           <div id="formadd" className="mt-10">
 
             {/* add and delete button */}

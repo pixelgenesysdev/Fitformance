@@ -12,8 +12,7 @@ function MyProfile() {
 
   // ✅ FORM STATE
   const [formData, setFormData] = useState({
-    firstName: "John",
-    lastName: "Doe",
+    FullName: "John Doe",
     email: "johndoe@example.com",
     phone: "1234567890",
   });
@@ -32,30 +31,19 @@ function MyProfile() {
         </div>
 
         <Input
-          label="First Name:"
+          label="Full Name:"
           type="text"
-          id="firstName"
+          id="FullName"
           placeholder="Enter Name Here"
           fieldicon={faUser}
-          value={formData.firstName}
+          value={formData.FullName}
           disabled={!isEditing}
           onChange={(e) =>
-            setFormData({ ...formData, firstName: e.target.value })
+            setFormData({ ...formData, FullName: e.target.value })
           }
         />
 
-        <Input
-          label="Last Name:"
-          type="text"
-          id="lastName"
-          placeholder="Enter Last Name Here"
-          fieldicon={faUser}
-          value={formData.lastName}
-          disabled={!isEditing}
-          onChange={(e) =>
-            setFormData({ ...formData, lastName: e.target.value })
-          }
-        />
+        
 
         <Input
           label="Email Address:"
@@ -92,9 +80,10 @@ function MyProfile() {
         <p className="text-center text-white text-1xl mt-6">
           <Link
             to="../passwordchange"
-            className="text-[#0AB4FF] hover:underline"
+            className="text-[#0AB4FF] hover:underline" 
+            style={{color:'#0AB4FF'}}
           >
-            Forget Password
+            Change Password
           </Link>
         </p>
 

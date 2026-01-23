@@ -1,11 +1,11 @@
-import Toptitle from "../layouts/top_title";
+import Top_title_backicon from "../layouts/top_title_backicon";
 import NewButton from "../ui/NewButton";
 
 
 export default function ClientDetails() {
   return (
     <>
-      <Toptitle title="Client Details" />
+      <Top_title_backicon title="Client Details" />
 
       {/* Main Container */}
       <div className="usercard bg-[#161617] my-6 p-7 rounded-lg text-white relative">

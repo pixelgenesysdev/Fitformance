@@ -2,6 +2,7 @@ import Toptitle from "../layouts/top_title"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import NewButton from "../ui/NewButton";
+import { FaEye } from "react-icons/fa";
 
 
 // === Types ===
@@ -11,22 +12,25 @@ interface Client {
   email: string;
   registered: string; // ISO format: "2024-06-01"
   status: "Active" | "Inactive";
+  riminderTitle?: string;
+  reminderDate?: string;
+  riminderTime?: string;
 }
 
 // === Dummy Data ===
 const initialClients: Client[] = [
-  { id: "U100", name: "John Cutter", email: "hello123@gmail.com", registered: "2024-06-01", status: "Active" },
-  { id: "U101", name: "John Cutter", email: "hello123@gmail.com", registered: "2024-06-08", status: "Inactive" },
-  { id: "U102", name: "John Cutter", email: "hello123@gmail.com", registered: "2024-06-01", status: "Inactive" },
-  { id: "U121", name: "John Cutter", email: "hello123@gmail.com", registered: "2024-06-07", status: "Inactive" },
-  { id: "U112", name: "John Cutter", email: "hello123@gmail.com", registered: "2024-06-03", status: "Active" },
-  { id: "U123", name: "John Cutter", email: "hello123@gmail.com", registered: "2024-06-01", status: "Active" },
-  { id: "U103", name: "John Cutter", email: "hello123@gmail.com", registered: "2024-06-05", status: "Active" },
-  { id: "U132", name: "John Cutter", email: "hello123@gmail.com", registered: "2024-06-04", status: "Active" },
-  { id: "U145", name: "Alex Morgan", email: "alex.morgan@example.com", registered: "2024-05-28", status: "Active" },
-  { id: "U156", name: "Sarah Lee", email: "sarah.lee@gmail.com", registered: "2024-06-10", status: "Inactive" },
-  { id: "U157", name: "Michael Brown", email: "mbrown@example.com", registered: "2024-07-15", status: "Active" },
-  { id: "U158", name: "Emma Davis", email: "emma.d@example.com", registered: "2024-04-20", status: "Inactive" },
+  { id: "U100", name: "John Cutter", email: "hello123@gmail.com", registered: "2024-06-01", status: "Active",riminderTitle:"Meeting with client", reminderDate:"2024-06-15", riminderTime:"10:00 AM" },
+  { id: "U101", name: "John Cutter", email: "hello123@gmail.com", registered: "2024-06-08", status: "Inactive",riminderTitle:"Project deadline", reminderDate:"2024-06-20", riminderTime:"5:00 PM" },
+  { id: "U102", name: "John Cutter", email: "hello123@gmail.com", registered: "2024-06-01", status: "Inactive",riminderTitle:"Team lunch", reminderDate:"2024-06-18", riminderTime:"1:00 PM" },
+  { id: "U121", name: "John Cutter", email: "hello123@gmail.com", registered: "2024-06-07", status: "Inactive",riminderTitle:"Budget review", reminderDate:"2024-06-25", riminderTime:"3:00 PM" },
+  { id: "U112", name: "John Cutter", email: "hello123@gmail.com", registered: "2024-06-03", status: "Active",riminderTitle:"Client follow-up", reminderDate:"2024-06-22", riminderTime:"11:00 AM" },
+  { id: "U123", name: "John Cutter", email: "hello123@gmail.com", registered: "2024-06-01", status: "Active",riminderTitle:"Strategy meeting", reminderDate:"2024-06-30", riminderTime:"2:00 PM" },
+  { id: "U103", name: "John Cutter", email: "hello123@gmail.com", registered: "2024-06-05", status: "Active",riminderTitle:"Performance review", reminderDate:"2024-06-28", riminderTime:"4:00 PM" },
+  { id: "U132", name: "John Cutter", email: "hello123@gmail.com", registered: "2024-06-04", status: "Active",riminderTitle:"Sales presentation", reminderDate:"2024-06-27", riminderTime:"9:00 AM" },
+  { id: "U145", name: "Alex Morgan", email: "alex.morgan@example.com", registered: "2024-05-28", status: "Active",riminderTitle:"Marketing meeting", reminderDate:"2024-06-12", riminderTime:"10:30 AM" },
+  { id: "U156", name: "Sarah Lee", email: "sarah.lee@gmail.com", registered: "2024-06-10", status: "Inactive",riminderTitle:"Product launch", reminderDate:"2024-06-29", riminderTime:"6:00 PM" },
+  { id: "U157", name: "Michael Brown", email: "mbrown@example.com", registered: "2024-07-15", status: "Active",riminderTitle:"Quarterly review", reminderDate:"2024-07-20", riminderTime:"3:30 PM" },
+  { id: "U158", name: "Emma Davis", email: "emma.d@example.com", registered: "2024-04-20", status: "Inactive",riminderTitle:"Team building event", reminderDate:"2024-05-15", riminderTime:"12:00 PM" },
 ];
 
 
@@ -35,11 +39,14 @@ function RemindersPage() {
 
     const [clients] = useState<Client[]>(initialClients);
     const [searchTerm, setSearchTerm] = useState("");
-    const [statusFilter, setStatusFilter] = useState<"All" | "Active" | "Inactive">("All");
     const [dateFrom, setDateFrom] = useState("");
     const [dateTo, setDateTo] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
-  
+    const [clientFilter, setClientFilter] = useState<string>("All");
+
+      const uniqueClients = Array.from(
+        new Set(clients.map((c) => c.name))
+      );
     const itemsPerPage = 10;
   
     // Reset to first page when filters change
@@ -48,22 +55,35 @@ function RemindersPage() {
     // Filtering Logic
     const filteredClients = clients.filter((client) => {
       const searchLower = searchTerm.toLowerCase();
+
       const matchesSearch =
         client.id.toLowerCase().includes(searchLower) ||
         client.name.toLowerCase().includes(searchLower) ||
         client.email.toLowerCase().includes(searchLower);
-  
-      const matchesStatus = statusFilter === "All" || client.status === statusFilter;
-  
-      const clientDate = new Date(client.registered);
+
+
+
+      const matchesClient =
+        clientFilter === "All" || client.name === clientFilter;
+
+      const clientDate = client.reminderDate
+        ? new Date(client.reminderDate)
+        : null;   
+
       const fromDate = dateFrom ? new Date(dateFrom) : null;
       const toDate = dateTo ? new Date(dateTo) : null;
-  
-      const afterFrom = !fromDate || clientDate >= fromDate;
-      const beforeTo = !toDate || clientDate <= toDate;
-  
-      return matchesSearch && matchesStatus && afterFrom && beforeTo;
+
+      const afterFrom = !fromDate || (clientDate && clientDate >= fromDate);
+      const beforeTo = !toDate || (clientDate && clientDate <= toDate);
+
+      return (
+        matchesSearch &&
+        matchesClient &&
+        afterFrom &&
+        beforeTo
+      );
     });
+
   
     // Pagination
     const totalPages = Math.ceil(filteredClients.length / itemsPerPage);
@@ -94,7 +114,7 @@ function RemindersPage() {
        console.log(client);
       // Replace with modal or navigation logic
     };
-  
+
 
 
   return (
@@ -132,20 +152,24 @@ function RemindersPage() {
                     />
                   </div>
 
-                  {/* Status & Date Filters */}
+                  {/* Client Name Filter  & Date Filters */}
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <select
-                      value={statusFilter}
-                      onChange={(e) => {
-                        setStatusFilter(e.target.value as "All" | "Active" | "Inactive");
-                        resetPage();
-                      }}
-                      className="bg-[#040404] border border-gray-700 text-white text-sm rounded-lg focus:ring-2 focus:ring-[#37B5FF] focus:border-[#37B5FF] px-4 py-3 transition"
-                    >
-                      <option value="All">All Status</option>
-                      <option value="Active">Active</option>
-                      <option value="Inactive">Inactive</option>
-                    </select>
+                  <select
+                    value={clientFilter}
+                    onChange={(e) => {
+                      resetPage();
+                      setClientFilter(e.target.value);
+                    }}
+                    className="bg-[#040404] border border-gray-700 text-white text-sm rounded-lg 
+                              rounded-lg focus:ring-2 focus:ring-[#37B5FF] px-4 py-3"
+                  >
+                    <option value="All">All</option>
+                    {uniqueClients.map((client) => (
+                      <option key={client} value={client}>
+                        {client}
+                      </option>
+                    ))}
+                  </select>
 
                     <input
                       type="date"
@@ -174,12 +198,12 @@ function RemindersPage() {
                   <table className="w-full text-sm text-left text-gray-400">
                     <thead className="text-xs uppercase bg-[#040404] text-white">
                       <tr>
-                        <th scope="col" className="px-6 py-4">ID</th>
-                        <th scope="col" className="px-6 py-4">Name</th>
-                        <th scope="col" className="px-6 py-4">Email</th>
-                        <th scope="col" className="px-6 py-4">Registered On</th>
-                        <th scope="col" className="px-6 py-4">Status</th>
-                        <th scope="col" className="px-6 py-4 text-right">Profile</th>
+                        <th scope="col" className="px-6 py-4">S. No</th>
+                        <th scope="col" className="px-6 py-4">Client</th>
+                        <th scope="col" className="px-6 py-4">Reminder Title</th>
+                        <th scope="col" className="px-6 py-4">Reminder Date</th>
+                        <th scope="col" className="px-6 py-4">Reminder Time</th>
+                        <th scope="col" className="px-6 py-4 text-right">Action</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -190,27 +214,22 @@ function RemindersPage() {
                         >
                           <td className="px-6 py-4 font-medium text-white">{client.id}</td>
                           <td className="px-6 py-4">{client.name}</td>
-                          <td className="px-6 py-4">{client.email}</td>
+                          <td className="px-6 py-4">{client.riminderTitle}</td>
                           <td className="px-6 py-4">
-                            {new Date(client.registered).toLocaleDateString("en-GB")}
+                            {/* {new Date(client.registered).toLocaleDateString("en-GB")}
+                             */}
+                             {client.reminderDate}
                           </td>
                           <td className="px-6 py-4">
-                            <span
-                              className={`inline-flex px-3 py-1 rounded-full text-xs font-medium transition ${
-                                client.status === "Active"
-                                  ? "bg-green-900/50 text-green-300"
-                                  : "bg-red-900/50 text-red-300"
-                              }`}
-                            >
-                              {client.status}
-                            </span>
+                              {client.riminderTime}
                           </td>
                           <td className="px-6 py-4 text-right actionbtntable">
                             <button
                               onClick={() => handleShowClient(client)}
                               className="font-medium text-[#37B5FF] hover:underline transition"
                             >
-                              Show
+                              <FaEye />
+
                             </button>
                           </td>
                         </tr>
@@ -245,17 +264,25 @@ function RemindersPage() {
 
                       <div className="space-y-3 text-sm">
                         <div>
-                          <p className="text-gray-500">Name</p>
+                          <p className="text-gray-500">Client</p>
                           <p className="text-white font-medium">{client.name}</p>
                         </div>
                         <div>
-                          <p className="text-gray-500">Email</p>
-                          <p className="text-white break-all">{client.email}</p>
+                          <p className="text-gray-500">Reminder Title</p>
+                          <p className="text-white break-all">{client.riminderTitle}</p>
                         </div>
                         <div>
-                          <p className="text-gray-500">Registered On</p>
+                          <p className="text-gray-500">Reminder Date</p>
                           <p className="text-white">
-                            {new Date(client.registered).toLocaleDateString("en-GB")}
+                            {/* {new Date(client.registered).toLocaleDateString("en-GB")} */}
+                            {client.reminderDate}
+                          </p>
+                        </div>
+                        <div>
+                          <p className="text-gray-500">Reminder Time</p>
+                          <p className="text-white">
+                            {/* {new Date(client.registered).toLocaleDateString("en-GB")} */}
+                            {client.riminderTime}
                           </p>
                         </div>
                       </div>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Toptitle from "../layouts/top_title";
+import Top_title_backicon from "../layouts/top_title_backicon";
 import NewButton from "../ui/NewButton";
 
 export default function ClientDetails2() {
@@ -7,7 +7,7 @@ export default function ClientDetails2() {
 
   return (
     <>
-      <Toptitle title="Client Details" />
+      <Top_title_backicon title="Client Details" />
 
       {/* MAIN CARD */}
       <div className="bg-[#161617] text-white rounded-xl p-6 mt-6">

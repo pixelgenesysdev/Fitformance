@@ -1,12 +1,18 @@
 import  { useState } from "react";
-import Toptitle from "../layouts/top_title";
+import Top_title_backicon from "../layouts/top_title_backicon";
+import Button from "../layouts/button";
+import { useNavigate } from "react-router-dom";
 
 export default function Plandocuements() {
   const [activeTab, setActiveTab] = useState("All");
+  const navigate = useNavigate();
 
   return (
     <>
-      <Toptitle title="plan Docuements" />
+      <div className="flex items-center justify-between"> 
+      <Top_title_backicon title="View Plan" />
+      <Button text="Edit Plan" Customclass="max-w-[200px]" onClick={()=>{navigate("../editplan")}} />
+      </div>
 
       {/* MAIN CARD */}
 

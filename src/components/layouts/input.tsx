@@ -10,7 +10,7 @@ interface InputProps {
   placeholder: string;
   fieldicon: IconDefinition;
   required?: boolean;
-  value?: string;
+  value?:   string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
 }
@@ -45,14 +45,14 @@ const Input: React.FC<InputProps> = ({
           placeholder={placeholder}
           value={value}
           onChange={onChange}
-          className="w-full bg-transparent pt-1 pb-1 text-white text-1xl placeholder-gray-300 focus:outline-none"
+          className={`w-full bg-transparent pt-1 pb-1 text-white text-1xl placeholder-gray-300 focus:outline-none ${disabled  ? "opacity-50 cursor-no-drop" : ""} `}
           required={required}
           disabled={disabled}
         />
 
         {type === "password" && (
           <FontAwesomeIcon
-            icon={showPassword ? faEyeSlash : faEye}
+            icon={showPassword ? faEye : faEyeSlash}
             className="text-[#0AB4FF] ml-2 cursor-pointer"
             onClick={() => setShowPassword(prev => !prev)}
           />

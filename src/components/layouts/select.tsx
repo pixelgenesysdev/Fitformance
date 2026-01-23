@@ -13,15 +13,21 @@ interface SelectProps {
   required?: boolean;
   options: SelectOption[];
   placeholder?: string;
+  disabled?: boolean;
+  onChange?: (value: string) => void;
+  value?: string
 }
 
 const Select: React.FC<SelectProps> = ({
   label,
   id,
+  onChange,
   fieldicon,
   required = false,
   options,
-  placeholder
+  placeholder,
+  disabled = false,
+  value = ""
 }) => {
   return (
     <div className="mb-4">
@@ -37,8 +43,12 @@ const Select: React.FC<SelectProps> = ({
         <select
           id={id}
           required={required}
-          className="w-full bg-transparent pt-1 pb-1 text-white text-1xl focus:outline-none cursor-pointer"
+          className={`w-full bg-transparent pt-1 pb-1 text-white text-1xl focus:outline-none cursor-pointer ${disabled ? "opacity-50 cursor-no-drop" : ""} `}
           defaultValue=""
+          disabled ={disabled}
+          value={value}
+          onChange={(e) => onChange && onChange(e.target.value)}
+
         >
           {placeholder && (
             <option value="" disabled hidden>

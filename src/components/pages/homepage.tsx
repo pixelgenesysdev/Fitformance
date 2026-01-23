@@ -17,6 +17,7 @@ import Plandocuements from "./plandocuements.tsx";
 import Createplan from "./createplan.tsx";
 import ClientDetails from "./clientdetails.tsx";
 import ClientDetails2 from "./clientdetails2.tsx";
+import Editplan from "./Editplan.tsx";
 
 export default function Homepage() {
   const location = useLocation();
@@ -86,6 +87,9 @@ export default function Homepage() {
             <Plandocuements />
           ) : pathname === "/pages/createplan" ? (
             <Createplan />
+          ) : pathname === "/pages/editplan" ? (
+            <Editplan />
+            
           ) : (
             <DashboardPage />
           )}

@@ -5,7 +5,6 @@ import Login from "./login";
 import OtpAuth from "./OtpAuth";
 import NewPassword from "./newpassword";
 import RecoveryEmail from "./recoveryEmail";
-import { useNavigate } from "react-router-dom";
 
 export default function Authhomesection() {
   const location = useLocation();
@@ -13,7 +12,6 @@ export default function Authhomesection() {
   const isrecoveryemail = location.pathname === "/auth/recoveryemail";
   const isotpauth = location.pathname === "/auth/otpauth";
   const isnewpassword = location.pathname === "/auth/newpassword";
-  const navigate = useNavigate();
 
 
   return (
@@ -28,11 +26,8 @@ export default function Authhomesection() {
         <div className="imagecol pb-10 lg:pb-0">
           <img
             src='/images/fitformance_logo.png'
-            onClick={() => {
-              navigate("/pages/home");
-            }}
             alt="Fitformance Logo"
-            className="lg:w-[80%] mx-w-[100%] w-[100%] md:w-[90%] m-auto  table object-contain cursor-pointer"
+            className="lg:w-[80%] mx-w-[100%] w-[100%] md:w-[90%] m-auto  table object-contain"
           />
         </div>
 

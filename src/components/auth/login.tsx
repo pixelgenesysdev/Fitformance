@@ -16,10 +16,10 @@ function login() {
 
                 {/* Email */}
             <Input 
-              label="Email" 
+              label="Email Address" 
               type="email" 
               id="email" 
-              placeholder="Enter your email"
+              placeholder="Enter your Email Address"
               fieldicon={faEnvelope}
               required={true}
             />

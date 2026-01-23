@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Toptitle from "../layouts/top_title";
+import React from "react";
+import { Eye } from "lucide-react";
 
 interface FileItem {
   id: string;
@@ -10,18 +12,18 @@ interface FileItem {
 }
 
 const initialFiles: FileItem[] = [
-  { id: "IFR32", name: "d3o.mp4", type: "Video", date: "Jan 30, 2024" },
-  { id: "IFR31", name: "animation.gif", type: "GIF", date: "Jan 27, 2024" },
-  { id: "IFR32", name: "report.pdf", type: "Document", date: "Jan 30, 2024" },
-  { id: "IFR31", name: "video_clip.mp4", type: "Video", date: "Jan 27, 2024" },
-  { id: "IFR32", name: "notes.txt", type: "Document", date: "Jan 30, 2024" },
-  { id: "IFR31", name: "photo.jpg", type: "Image", date: "Jan 27, 2024" },
-  { id: "IFR32", name: "presentation.pptx", type: "Document", date: "Jan 30, 2024" },
-  { id: "IFR31", name: "movie.mp4", type: "Video", date: "Jan 27, 2024" },
-  { id: "IFR45", name: "banner.png", type: "Image", date: "Jan 25, 2024" },
-  { id: "IFR50", name: "loading.gif", type: "GIF", date: "Jan 22, 2024" },
-  { id: "IFR55", name: "contract.docx", type: "Document", date: "Jan 20, 2024" },
-  { id: "IFR60", name: "tutorial.mp4", type: "Video", date: "Jan 18, 2024" },
+  { id: "IFR2322", name: "d3o.mp4", type: "Video", date: "Jan 30, 2024" },
+  { id: "IFR321", name: "animation.gif", type: "GIF", date: "Jan 27, 2024" },
+  { id: "IF34R32", name: "report.pdf", type: "Document", date: "Jan 30, 2024" },
+  { id: "IF1R31", name: "video_clip.mp4", type: "Video", date: "Jan 27, 2024" },
+  { id: "IF44R32", name: "notes.txt", type: "Document", date: "Jan 30, 2024" },
+  { id: "IF56R31", name: "photo.jpg", type: "Image", date: "Jan 27, 2024" },
+  { id: "IF5R432", name: "presentation.pptx", type: "Document", date: "Jan 30, 2024" },
+  { id: "I4FR31", name: "movie.mp4", type: "Video", date: "Jan 27, 2024" },
+  { id: "IFR745", name: "banner.png", type: "Image", date: "Jan 25, 2024" },
+  { id: "IFR3350", name: "loading.gif", type: "GIF", date: "Jan 22, 2024" },
+  { id: "IF123R55", name: "contract.docx", type: "Document", date: "Jan 20, 2024" },
+  { id: "IF3R60", name: "tutorial.mp4", type: "Video", date: "Jan 18, 2024" },
 ];
 
 function PostLabpage() {
@@ -70,7 +72,7 @@ function PostLabpage() {
 
   return (
     <>
-      <Toptitle title="Post Lab" />
+      <Toptitle title="Post Rehab Lab" />
 
       <div className="min-h-screen bg-[#000000] text-white py-6">
         <div className="max-w-screen mx-auto px-4">
@@ -160,16 +162,12 @@ function PostLabpage() {
                       <td className="px-6 py-4 text-sm text-gray-300">{file.type}</td>
                       <td className="px-6 py-4 text-sm text-gray-300">{file.date}</td>
                       <td className="px-6 py-4 text-right">
-                        <button
-                          onClick={() =>
+                        
+                          <Eye size={24} className="cursor-pointer inline-block mr-1 text-[#37B5FF]" onClick={() =>
                             file.type === "Document"
                               ? navigate(`/pages/viewdocument?${file.id}`)
                               : navigate(`/pages/viewprotocol?${file.id}`)
-                          }
-                          className="text-[#37B5FF] hover:text-[#5ac4ff] transition"
-                        >
-                          View
-                        </button>
+                          }/>
                       </td>
                     </tr>
                   ))
@@ -229,38 +227,53 @@ function PostLabpage() {
             <p className="text-sm text-gray-400 mb-2 sm:mb-0">
               Showing {filteredFiles.length === 0 ? 0 : startIndex + 1}-{endIndex} of {filteredFiles.length} entries
             </p>
-            <div className="flex items-center space-x-2">
-              <button
-                onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-                disabled={currentPage === 1}
-                className="px-4 py-2 text-sm font-medium rounded-lg bg-[#37B5FF] text-white disabled:opacity-50 disabled:cursor-not-allowed transition"
-              >
-                Previous
-              </button>
-              {[...Array(totalPages)].map((_, i) => {
-                const pageNum = i + 1;
-                return (
-                  <button
-                    key={pageNum}
-                    onClick={() => setCurrentPage(pageNum)}
-                    className={`px-4 py-2 text-sm font-medium rounded-lg transition ${
-                      currentPage === pageNum
-                        ? "bg-[#37B5FF] text-white"
-                        : "bg-gray-800 text-gray-400 hover:bg-[#37B5FF]/80 hover:text-white"
-                    }`}
-                  >
-                    {pageNum}
-                  </button>
-                );
-              })}
-              <button
-                onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-                disabled={currentPage === totalPages}
-                className="px-4 py-2 text-sm font-medium rounded-lg bg-[#37B5FF] text-white disabled:opacity-50 disabled:cursor-not-allowed transition"
-              >
-                Next
-              </button>
-            </div>
+<div className="flex items-center space-x-2 buttonbrbottom">
+  {/* Previous Button */}
+  <button
+    onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+    disabled={currentPage === 1}
+    className="px-4 py-2 bigbutton text-sm font-medium rounded-lg bg-[#37B5FF] text-white disabled:opacity-50 disabled:cursor-not-allowed transition"
+  >
+    Previous
+  </button>
+
+  {/* Page Numbers */}
+  {Array.from({ length: totalPages }, (_, i) => i + 1)
+    .filter((page) => {
+      if (totalPages <= 5) return true;
+      if (page === 1 || page === totalPages) return true;
+      if (page >= currentPage - 1 && page <= currentPage + 1) return true;
+      return false;
+    })
+    .map((page, index, arr) => (
+      <React.Fragment key={page}>
+        {index > 0 && page - arr[index - 1] > 1 && (
+          <span className="px-2 text-gray-400">...</span>
+        )}
+
+        <button
+          onClick={() => setCurrentPage(page)}
+          className={`px-4 py-2 text-sm font-medium rounded-lg transition ${
+            currentPage === page
+              ? "bg-[#37B5FF] text-white activepage"
+              : "bg-gray-800 text-gray-400 hover:bg-[#37B5FF]/80 hover:text-white"
+          }`}
+        >
+          {page}
+        </button>
+      </React.Fragment>
+    ))}
+
+  {/* Next Button */}
+  <button
+    onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+    disabled={currentPage === totalPages}
+    className="px-4 py-2 bigbutton text-sm font-medium rounded-lg bg-[#37B5FF] text-white disabled:opacity-50 disabled:cursor-not-allowed transition"
+  >
+    Next
+  </button>
+</div>
+
           </div>
         </div>
       </div>

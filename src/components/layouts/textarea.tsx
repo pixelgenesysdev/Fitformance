@@ -8,7 +8,9 @@ interface TextAreaProps {
   fieldicon: IconDefinition;
   required?: boolean;
   rows?: number;
-  value?: string
+  value?: string;
+  disabled?: boolean;
+  onChange?: (value: string) => void;
 }
 
 const TextArea: React.FC<TextAreaProps> = ({
@@ -17,7 +19,10 @@ const TextArea: React.FC<TextAreaProps> = ({
   placeholder,
   fieldicon,
   required = false,
-  rows = 4
+  rows = 4,
+  value = "",
+  onChange,
+  disabled = false
 }) => {
   return (
     <div className="mb-4">
@@ -38,7 +43,10 @@ const TextArea: React.FC<TextAreaProps> = ({
           placeholder={placeholder}
           required={required}
           rows={rows}
-          className="w-full bg-transparent text-white text-1xl placeholder-gray-300 focus:outline-none resize-none"
+          className={`w-full bg-transparent text-white text-1xl placeholder-gray-300 focus:outline-none resize-none ${disabled ? "opacity-50 cursor-no-drop" : ""} `}
+          value={value}
+          disabled={disabled}
+          onChange={(e) => onChange && onChange(e.target.value)}
         ></textarea>
       </div>
     </div>
