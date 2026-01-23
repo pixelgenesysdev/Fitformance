@@ -17,7 +17,7 @@ import Plandocuements from "./plandocuements.tsx";
 import Createplan from "./createplan.tsx";
 import ClientDetails from "./clientdetails.tsx";
 import ClientDetails2 from "./clientdetails2.tsx";
-import Editplan from "./Editplan.tsx";
+import Editplan from "./editplan.tsx";
 
 export default function Homepage() {
   const location = useLocation();
