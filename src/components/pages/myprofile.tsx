@@ -68,7 +68,7 @@ function MyProfile() {
         />
 
         <Button
-          text={isEditing ? "Save" : "Edit"}
+          text={isEditing ? "Update Profile " : "Edit"}
           onClick={() => {
             if (isEditing) {
               setOpen(true); // ✅ Save pe popup

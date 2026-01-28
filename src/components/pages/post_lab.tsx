@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Toptitle from "../layouts/top_title";
 import React from "react";
 import { Eye } from "lucide-react";
+import Innerpopup from "../ui/innerpopup";
 
 interface FileItem {
   id: string;
@@ -28,12 +29,21 @@ const initialFiles: FileItem[] = [
 
 function PostLabpage() {
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState("All");
+  const [open, setOpen] = useState(false);
   const [files] = useState<FileItem[]>(initialFiles);
   const [searchTerm, setSearchTerm] = useState("");
   const [dateFrom, setDateFrom] = useState("");
   const [dateTo, setDateTo] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+
+
+const [activeTab, setActiveTab] = useState(
+  () => localStorage.getItem("postlab_active_tab") || "All"
+);
+
+useEffect(() => {
+  localStorage.setItem("postlab_active_tab", activeTab);
+}, [activeTab]);
 
   const itemsPerPage = 10;
 
@@ -167,7 +177,9 @@ function PostLabpage() {
                             file.type === "Document"
                               ? navigate(`/pages/viewdocument?${file.id}`)
                               : navigate(`/pages/viewprotocol?${file.id}`)
-                          }/>
+                          }/> 
+
+                          {/* <Eye size={24} className="cursor-pointer inline-block mr-1 text-[#37B5FF]" onClick={() =>setOpen(true)}/> */}
                       </td>
                     </tr>
                   ))
@@ -277,6 +289,13 @@ function PostLabpage() {
           </div>
         </div>
       </div>
+
+
+
+      {open && <Innerpopup  onClose={() => setOpen(false)} />}
+    
+   
+        
     </>
   );
 }

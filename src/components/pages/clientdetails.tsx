@@ -55,19 +55,19 @@ export default function ClientDetails() {
             </div>
 
             <div className="flex">
-              <span className="text-gray-300 w-32">Condition :</span>
+              <span className="text-gray-300 w-32">Issue:</span>
               <span className="font-medium">Knee, Shoulder</span>
             </div>
 
-            <div className="flex">
+            {/* <div className="flex">
               <span className="text-gray-300 w-32">Referral Provider :</span>
               <span className="font-medium">John</span>
-            </div>
+            </div> */}
 
         </div>
         {/* Notes Section */}
         <div className="mt-1">
-          <span className="text-gray-300 block mb-2">Notes :</span>
+          <span className="text-gray-300 block mb-2">Issue Details:</span>
           <p className="text-sm text-gray-100 leading-relaxed max-w-3xl">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
             Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales

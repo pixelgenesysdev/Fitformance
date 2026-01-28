@@ -27,7 +27,7 @@ function OtpAuth() {
               required={true}
             />
             <p className="text-1xl ml-1 mb-6">
-              <Link to="/otpauth" className="text-[#0AB4FF] cursor-pointer hover:underline" style={{color:'#0AB4FF'}}>Resend Code</Link>
+              <Link to="" className="text-[#0AB4FF] cursor-pointer hover:underline" style={{color:'#0AB4FF'}}>Resend Code</Link>
             </p>
             {/* Login button */}
 

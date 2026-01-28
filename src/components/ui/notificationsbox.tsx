@@ -3,6 +3,7 @@ import {faXmark} from "@fortawesome/free-solid-svg-icons";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 interface Notification {
   id: number;
@@ -87,7 +88,7 @@ const initialNotifications: Notification[] = [
 export default function NotificationsBox({ show, onClose}: Notificationbox) {
   const [notifications, setNotifications] = useState<Notification[]>(initialNotifications);
   const [activeTab, setActiveTab] = useState<'read' | 'unread'>('unread');
-
+  const Navigate = useNavigate();
   const toggleRead = (id: number) => {
     setNotifications(notifications.map(n => 
       n.id === id ? { ...n, read: !n.read } : n
@@ -168,11 +169,15 @@ export default function NotificationsBox({ show, onClose}: Notificationbox) {
           </div>
 
           {/* Footer */}
-          {/* <div className="mt-6 text-center">
-            <button className="text-[#37B5FF] hover:underline transition text-sm sm:text-base absolute bottom-3 left-1/2 transform -translate-x-1/2 mainbottomButtons">
+         <div className="mt-6 text-center">
+            <button className="text-[#37B5FF] hover:underline transition text-sm sm:text-base absolute bottom-3 left-1/2 transform -translate-x-1/2 mainbottomButtons"
+             onClick={() => {
+              Navigate('/pages/allNotification');
+              onClose();
+             }}>
               VIEW ALL NOTIFICATIONS
             </button>
-          </div> */}
+          </div>
         </div>
       </div>
     </>

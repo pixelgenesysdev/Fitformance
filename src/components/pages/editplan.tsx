@@ -23,10 +23,7 @@ export default function Editplan() {
   const [library, setLibrary] = useState("Client2");
   const [sessions, setSessions] = useState("Client3");
   const [sessionName, setSessionName] = useState("Morning Yoga");
-  const [duration, setDuration] = useState(2);
-  const [details, setDetails] = useState(
-    "This session focuses on flexibility and breathing."
-  );
+  const [duration, setDuration] = useState("30 mins");
   const [notes, setNotes] = useState(
     "Client prefers slow pace and calm music."
   );
@@ -68,7 +65,7 @@ export default function Editplan() {
 
         {/* Sessions */}
         <Select
-          label="Sessions"
+          label="Exercise"
           id="User_Sessions"
           fieldicon={faSearchMinus}
           required
@@ -83,7 +80,7 @@ export default function Editplan() {
 
         {/* Session Name */}
         <Input
-          label="Session Name"
+          label="Exercise Name"
           type="text"
           id="session_name"
           placeholder="Enter Session Name"
@@ -93,20 +90,10 @@ export default function Editplan() {
           onChange={(e: any) => setSessionName(e.target.value)}
         />
 
-        {/* Session Details */}
-        <TextArea
-          label="Session Details"
-          id="session_details"
-          fieldicon={faCommentDots}
-          rows={5}
-          required
-          value={details}
-          onChange={setDetails}
-        />
 
         {/* Session Notes */}
         <TextArea
-          label="Session Notes"
+          label="Exercise Notes"
           id="session_notes"
           fieldicon={faCommentDots}
           rows={5}
@@ -117,14 +104,14 @@ export default function Editplan() {
 
         {/* Duration */}
         <Input
-          label="Duration (minutes)"
-          type="number"
+          label="Frequency"
+          type="text"
           id="duration"
           placeholder="eg 2"
           fieldicon={faStopwatch}
           required
           value={duration.toString()}
-          onChange={(e: any) => setDuration(Number(e.target.value))}
+          onChange={(e: any) => setDuration(e.target.value)}
         />
 
         <Button text="Update Plan" onClick={() => setOpen(true)} />

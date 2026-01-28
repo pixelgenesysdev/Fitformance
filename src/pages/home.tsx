@@ -19,6 +19,7 @@ export default function Mainhome() {
         <Route path="Reminders" element={<Homepage />} />
           <Route path="AddReminder" element={<Homepage />} />
           <Route path="viewreminder" element={<Homepage />} />
+        <Route path="allNotification" element={<Homepage />} />
 
         <Route path="MyProfile" element={<Homepage />} />
           <Route path="Passwordchange" element={<Homepage />} />

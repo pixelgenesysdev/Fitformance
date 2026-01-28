@@ -18,6 +18,7 @@ import Createplan from "./createplan.tsx";
 import ClientDetails from "./clientdetails.tsx";
 import ClientDetails2 from "./clientdetails2.tsx";
 import Editplan from "./editplan.tsx";
+import AllNotification from "./allnotification.tsx";
 
 export default function Homepage() {
   const location = useLocation();
@@ -58,7 +59,7 @@ export default function Homepage() {
         }`}
       >
         <Topbar toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)} />
-        <div id="contentBoxPage" className="py-10 px-6 h-[90vh] overflow-y-scroll">
+        <div id="contentBoxPage" className="relative py-10 px-6 h-[90vh] overflow-y-scroll">
           {pathname === "/pages/clientmanagement" ? (
             <Clientmanagement />
           ) : pathname === "/pages/chats" ? (
@@ -89,6 +90,8 @@ export default function Homepage() {
             <Createplan />
           ) : pathname === "/pages/editplan" ? (
             <Editplan />
+          ) : pathname === "/pages/allNotification" ? (
+            <AllNotification />
             
           ) : (
             <DashboardPage />

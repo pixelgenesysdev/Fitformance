@@ -57,8 +57,9 @@ export default function Sidebar({ isOpen, closeSidebar }: { isOpen: boolean; clo
             <div className="p-6 mb-2">
               <img
                 src="/images/fitformance_logo.png"
-                className="h-auto w-full "
+                className="h-auto w-full cursor-pointer"
                 alt="Fitformance"
+                onClick={() => navigate("/pages/home")}
               />
             </div>
 

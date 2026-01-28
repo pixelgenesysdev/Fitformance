@@ -89,7 +89,7 @@ import { useState } from "react";
 
     return (
       <>
-        <Toptitle title="Clients Management" />
+        <Toptitle title="Clients" />
 
         <section className="py-6 lg:py-8">
           <div className="mx-auto max-w-full px-0">

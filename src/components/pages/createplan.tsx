@@ -53,10 +53,10 @@ const Createplan = () => {
             />
 
             <Select
-              label="Sessions"
+              label="Exercise"
               id="User_Client"
               fieldicon={faSearchMinus}
-              placeholder="Add Sessions"
+              placeholder="Add Exercise"
               required={true}
               options={[
                 { label: "Client1", value: "Client1" },
@@ -66,36 +66,28 @@ const Createplan = () => {
             />
 
             <Input 
-              label="Session Name" 
+              label="Exercise Name" 
               type="text" 
               id="titletext" 
-              placeholder="Enter Session Name"
+              placeholder="Enter Exercise Name"
               fieldicon={faWineBottle}
               required={true}
             />
 
           <TextArea
-            label="Session Details"
+            label="Exercise Notes"
             id="message"
             fieldicon={faCommentDots}
-            placeholder="Write details here"
-            rows={5}
-            required
-          />
-          <TextArea
-            label="Session Notes"
-            id="message"
-            fieldicon={faCommentDots}
-            placeholder="Write details here"
+            placeholder="Write Notes here"
             rows={5}
             required
           />
 
             <Input 
-              label="Duration" 
-              type="number" 
+              label="Frequency" 
+              type="text" 
               id="titletext" 
-              placeholder="Select duration (eg 2 mins)"
+              placeholder="Enter frequency"
               fieldicon={faStopwatch}
               required={true}
             />
