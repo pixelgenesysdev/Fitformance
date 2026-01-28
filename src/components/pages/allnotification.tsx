@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Topbar from '../ui/topbar';
 import Top_title_backicon from '../layouts/top_title_backicon';
 
 interface Notification {
