@@ -74,7 +74,7 @@ export default function Sidebar({ isOpen, closeSidebar }: { isOpen: boolean; clo
 
               <SidebarLink
                 icon={faUsers}
-                label="Clients Management"
+                label="Clients"
                 link="/pages/clientmanagement"
                 activOn={["/pages/clientmanagement", "/pages/clientdetails", "/pages/createplan", "/pages/clientdetails2", "/pages/plandocuements", "/pages/editplan"]}
               />

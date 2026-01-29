@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Top_title_backicon from '../layouts/top_title_backicon';
+import Top_title from '../layouts/top_title';
 
 interface Notification {
   id: number;
@@ -68,7 +68,7 @@ export default function AllNotification() {
 
         {/* Header */}
         <div className="mb-8">
-          <Top_title_backicon title="All Notifications" />
+          <Top_title title="Notifications" />
 
         </div>
 

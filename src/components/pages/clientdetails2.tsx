@@ -3,7 +3,7 @@ import Top_title_backicon from "../layouts/top_title_backicon";
 import NewButton from "../ui/NewButton";
 
 export default function ClientDetails2() {
-  const [activeTab, setActiveTab] = useState("sessions");
+  const [activeTab, setActiveTab] = useState("exercises");
 
   return (
     <>
@@ -111,7 +111,7 @@ export default function ClientDetails2() {
 
         {/* ================= TABS ================= */}
         <div className="flex gap-8 mt-8 text-sm border-b border-[#2a2a2d] pb-3">
-          {["sessions", "documents", "notes"].map(tab => (
+          {["exercises", "documents", "notes"].map(tab => (
             <h4
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -121,7 +121,7 @@ export default function ClientDetails2() {
                   : "cursor-pointer hover:text-[#0AB4FF] hover:border-b-2 hover:border-[#0AB4FF]"
               }`}
             >
-              {tab === "sessions" ? "Session logs" : tab}
+              {tab === "exercises" ? "exercises logs" : tab}
             </h4>
           ))}
         </div>
@@ -131,10 +131,10 @@ export default function ClientDetails2() {
       </div>
       <div className="mt-10">
 
-          {/* ===== Sessions ===== */}
-          {activeTab === "sessions" && (
+          {/* ===== exercises ===== */}
+          {activeTab === "exercises" && (
             <>
-            <h3 className="text-2xl mb-3 font-semibold">Sessions</h3>
+            <h3 className="text-2xl mb-3 font-semibold">Exercises</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
 
                 
